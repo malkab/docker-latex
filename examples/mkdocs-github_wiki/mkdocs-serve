@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Serves and watch the project on the standard port 8000
+
+mkdocs serve -a 0.0.0.0:8000

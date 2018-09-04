@@ -1,0 +1,32 @@
+---
+fontsize: 9pt
+lang: spanish
+papersize: a4paper
+left: 
+fontfamily: charter
+title: Análisis de datos geográficos con PostgreSQL y PostGIS utilizando series $\rho$
+author:
+- Juan Pedro Pérez (Universidad de Sevilla)
+date: 2016-01-23
+author-meta: Juan Pedro Perez
+title-meta: Analisis de datos
+titlewidth: 2cm
+titleheight: 7cm
+uppermargin: 4cm
+bottommargin: 4cm
+leftmargin: 5.5cm
+rightmargin: 3cm
+columnseparation: 0.7cm
+parindent: 20pt
+parskip: 0.3cm
+sidenotespos: left
+sidenotessize: \normalfont\footnotesize
+sidenotessep: 1.25cm
+sidenoteswidth: 3.5cm
+sidenotesgap: 0.75cm
+classoptions:
+- draft
+- onecolumn
+- oneside
+- openany
+...
