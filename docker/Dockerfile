@@ -18,7 +18,9 @@ RUN apt-get update
 RUN apt-get upgrade -y 
 RUN apt-get install -y \
         texlive-xetex \
+        texlive-science \
         pandoc \
+        pandoc-citeproc \
         texlive-lang-spanish \
         make \
         python3 \

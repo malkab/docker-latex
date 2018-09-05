@@ -8,4 +8,4 @@ docker run -ti --rm \
     --name text-workflows-test \
     -p "${MKDOCSSERVERPORT}:8000" \
     --workdir /ext-src \
-    malkab/text-workflow:amazing_aardwolf
+    malkab/text-workflows
