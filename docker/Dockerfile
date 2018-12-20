@@ -1,9 +1,9 @@
 # Text workflow Docker based on TeX Live
 
-FROM ubuntu:latest
+FROM malkab/nodejs-dev:v10.13.0
 LABEL maintainer="Juan Pedro Perez"
-LABEL maintainer_email="jpperezalcantara@us.es"
-LABEL description="Text workflow Docker based on TeX Live."
+LABEL maintainer_email="jp.perez.alcantara@gmail.com"
+LABEL description="Text workflow Docker based on TeX Live and with Node for creating workers."
 
 
 # Non-interactive tzdata
@@ -28,12 +28,8 @@ RUN apt-get install -y \
 
 RUN pip3 install mkdocs mkdocs-material mkdocs-bootswatch
 
-
 # Add assets
 COPY assets/templates/ /templates/
-
-# Workdir
-WORKDIR /ext-src
 
 # /bin/bash
 ENTRYPOINT ["/bin/bash"]
