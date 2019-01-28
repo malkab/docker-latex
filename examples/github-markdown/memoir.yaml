@@ -17,7 +17,7 @@ bottommargin: 4cm
 leftmargin: 5.5cm
 rightmargin: 3cm
 columnseparation: 0.7cm
-parindent: 20pt
+parindent: 0pt
 parskip: 0.3cm
 sidenotespos: left
 sidenotessize: \normalfont\footnotesize

@@ -11,9 +11,9 @@ TEMPLATESDIR=/templates
 
 
 memoir-pdf-full : prep
-	$(PANDOC) src/chapter00.md src/chapter01.md memoir.yaml -s --top-level-division=chapter --table-of-contents --number-sections --highlight-style=haddock --template="$(TEMPLATESDIR)/Memoir/Memoir.tex" -o out/memoir-default.tex
+	$(PANDOC) src/chapter00.md src/chapter01.md memoir.yaml -s --table-of-contents --top-level-division=chapter --number-sections --highlight-style=haddock --template="$(TEMPLATESDIR)/Memoir/Memoir.tex" -o out/memoir-default.tex
 
-	$(PANDOC) src/chapter00.md src/chapter01.md memoir.yaml -s --top-level-division=chapter --table-of-contents --number-sections --highlight-style=haddock --template="$(TEMPLATESDIR)/Memoir/Memoir.tex" -o out/memoir-default.pdf
+	$(PANDOC) src/chapter00.md src/chapter01.md memoir.yaml -s --table-of-contents --top-level-division=chapter --number-sections --highlight-style=haddock --template="$(TEMPLATESDIR)/Memoir/Memoir.tex" -o out/memoir-default.pdf
 
 
 memoir-html-full : prep
