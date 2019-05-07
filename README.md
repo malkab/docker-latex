@@ -6,8 +6,6 @@ This Docker image contains all the software needed to conduct automated text wor
 
 - **MkDocs:** a technical data site build from Markdown.
 
-There are a bunch of examples in the **examples** folder on how to setup and launch this kind of workflow projects.
-
 For **pandoc** and **LaTeX** the **Memoir** template is loaded. Memoir has lots of options that can be checked out at the **docker/assets/templates/Memoir/README.md**.
 
 
