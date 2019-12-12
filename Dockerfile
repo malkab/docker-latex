@@ -1,6 +1,6 @@
 # Text workflow Docker based on TeX Live
 
-FROM malkab/nodejs-dev:v10.13.0
+FROM ubuntu:bionic
 LABEL maintainer="Juan Pedro Perez"
 LABEL maintainer_email="jp.perez.alcantara@gmail.com"
 LABEL description="Text workflow Docker based on TeX Live and with Node for creating workers."
@@ -23,6 +23,7 @@ RUN apt-get install -y \
         texlive-lang-spanish \
         texlive-fonts-extra \
         make \
+        locate \
         python3 \
         python3-pip
 
@@ -30,10 +31,10 @@ RUN pip3 install mkdocs mkdocs-material mkdocs-bootswatch
 
 # Add assets
 COPY assets/templates/ /templates/
-COPY assets/pandoc-2.5-1-amd64.deb /
+COPY assets/pandoc-2.8.1-1-amd64.deb /
 
 # Install pandoc
-RUN dpkg -i /pandoc-2.5-1-amd64.deb && rm /pandoc-2.5-1-amd64.deb
+RUN dpkg -i /pandoc-2.8.1-1-amd64.deb && rm /pandoc-2.8.1-1-amd64.deb
 
 # /bin/bash
 ENTRYPOINT ["/bin/bash"]
