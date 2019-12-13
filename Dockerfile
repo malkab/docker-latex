@@ -22,8 +22,10 @@ RUN apt-get install -y \
         texlive-science \
         texlive-lang-spanish \
         texlive-fonts-extra \
+        biber \
         make \
         locate \
+        apt-file \
         python3 \
         python3-pip
 
@@ -35,6 +37,11 @@ COPY assets/pandoc-2.8.1-1-amd64.deb /
 
 # Install pandoc
 RUN dpkg -i /pandoc-2.8.1-1-amd64.deb && rm /pandoc-2.8.1-1-amd64.deb
+
+# Install correct version of biber to match the one of the 
+# installed BibTeX
+
+COPY assets/biber-2.14 /usr/bin/biber
 
 # /bin/bash
 ENTRYPOINT ["/bin/bash"]
