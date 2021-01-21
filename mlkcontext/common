@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# ---------------------------
+#
+# Common settings for all contexts, base for other development envs.
+#
+# This file is read as base for any other environment, and supersedes vars at
+# mlkcontext/system.
+#
+# ---------------------------
+#
+# Prefix variables with MLKC_[[PROJECT ID]]_.
+# v${MLKCONTEXT_VERSION}
+#
+# ---------------------------
+
+export MLKC_TEXT_WORKFLOWS_TEXLIVE_YEAR=2020

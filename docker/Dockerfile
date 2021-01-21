@@ -1,6 +1,6 @@
 # Text workflow Docker based on TeX Live
 
-FROM ubuntu:bionic
+FROM ubuntu:latest
 LABEL maintainer="Juan Pedro Perez"
 LABEL maintainer_email="jp.perez.alcantara@gmail.com"
 LABEL description="Text workflow Docker based on TeX Live"
@@ -26,23 +26,20 @@ RUN apt-get update && \
       python3 \
       wget \
       vim \
-      python3-pip
+      python3-pip \
+      imagemagick
 
 RUN pip3 install mkdocs mkdocs-material mkdocs-bootswatch
 
-
 # Add assets
-COPY assets/pandoc-2.8.1-1-amd64.deb /
-
+COPY ./assets/pandoc.deb /
 
 # Install pandoc
-RUN dpkg -i /pandoc-2.8.1-1-amd64.deb && \
-  rm /pandoc-2.8.1-1-amd64.deb 
-  
+RUN dpkg -i /pandoc.deb && \
+  rm /pandoc.deb
 
 # Clean a little bit
 RUN apt-get clean
-
 
 # /bin/bash
 ENTRYPOINT ["/bin/bash"]
