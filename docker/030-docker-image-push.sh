@@ -18,15 +18,15 @@ MATCH_MLKCONTEXT=
 # inside the parentheses. Provide the full image names as shown in docker
 # images.
 IMAGES=(
-  malkab/text-workflows:2020
+  malkab/text-workflows:tl$MLKC_TEXT_WORKFLOWS_TEXLIVE_YEAR
   malkab/text-workflows:latest
 )
 # The user for login. Leave blank if the default DockerHub repo is going to be
 # used.
-USER=$MLKC_SYSTEM_GITLAB_USER
+USER=
 # The registry for login. Leave blank if the default DockerHub repo is going to
 # be used.
-REGISTRY=$MLKC_SYSTEM_GITLAB_REGISTRY
+REGISTRY=
 
 
 
