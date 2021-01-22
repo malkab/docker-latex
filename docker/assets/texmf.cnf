@@ -7,13 +7,13 @@
 % the distributed file (which is .../texlive/YYYY/texmf-dist/web2c/texmf.cnf).
 % And include *only* your changed values, not a copy of the whole thing!
 %
-main_memory=1240000000
+main_memory=12400000
 save_size=1240000
-extra_mem_bot=1240000000
-extra_mem_top=1240000000
-font_mem_size=1240000000
-pool_size=1240000000
-buf_size=1240000000
+extra_mem_bot=12400000
+extra_mem_top=12400000
+font_mem_size=12400000
+pool_size=12400000
+buf_size=12400000
 EnableWrite18=p
 stack-size=200000000
-max-strings=1240000000
+max-strings=12400000
