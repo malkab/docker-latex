@@ -7,7 +7,10 @@ This repo contains the process and tools to create a Docker image for working wi
 
 This image has the following tags:
 
-- **tl2019:** TeX Live for 2019, Pandoc version unk
+- **tl2019:** TeX Live for 2019, Pandoc version 2.8.1;
+
+- **tl2020:** TeX Live for 2020, Pandoc version 2.11.3. This tag includes ImageMagick for image processing.
+
 
 ## Build Steps
 
