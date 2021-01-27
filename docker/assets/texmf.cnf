@@ -8,7 +8,7 @@
 % And include *only* your changed values, not a copy of the whole thing!
 %
 main_memory=12400000
-save_size=1240000
+save_size=12400000
 extra_mem_bot=12400000
 extra_mem_top=12400000
 font_mem_size=12400000
