@@ -29,7 +29,8 @@ RUN apt-get update && \
       wget \
       vim \
       python3-pip \
-      imagemagick
+      imagemagick \
+      libncurses5
 
 RUN pip3 install mkdocs mkdocs-material mkdocs-bootswatch
 

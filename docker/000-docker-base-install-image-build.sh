@@ -4,7 +4,9 @@
 
 # -----------------------------------------------------------------
 #
-# Document here the purpose of the script.
+# Creates a first image with all the preliminary packages needed for installing
+# TexLive, including Pandoc and ImageMagick. This image will be used to install
+# TexLive from the CD ISO image.
 #
 # -----------------------------------------------------------------
 #
