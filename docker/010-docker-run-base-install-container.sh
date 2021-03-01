@@ -4,7 +4,7 @@
 
 # -----------------------------------------------------------------
 #
-# Run the base image to install TeX Live.
+# Run the base image to install TeX Live manually.
 #
 # -----------------------------------------------------------------
 #

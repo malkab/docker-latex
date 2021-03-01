@@ -9,7 +9,7 @@ This image has the following tags:
 
 - **tl2019:** TeX Live for 2019, Pandoc version 2.8.1;
 
-- **tl2020:** TeX Live for 2020, Pandoc version 2.11.3. This tag includes ImageMagick for image processing.
+- **tl2020:** TeX Live for 2020 of 2020-04-06, Pandoc version 2.11.4. This tag includes ImageMagick for image processing.
 
 
 ## Build Steps
@@ -22,15 +22,15 @@ Steps to build the image:
 
 - download the latest release of **Pandoc** from its page. Copy it to the **docker/assets folder** and rename to **pandoc.deb**;
 
-- run the **texlive/000-mount-iso.sh** script. It will mount the ISO into the **texlive-mount-point** folder;
+- run the **texlive/000-mount-iso.sh** script as sudo. It will mount the ISO into the **texlive-mount-point** folder;
 
 - create a base image for working the TeX Live installation by running the **docker/000** script;
 
 - configure the **common context** with the name of the TeX Live distribution;
 
-- create a non-volatile container running **docker/010** and install and configure in it TeX Live. This container mounts the ISO image at **/texlive**. In the latest release (2020), there was an **install-tl** script. All default parameters were accepted except for the default paper size: set the option to use A4 by default. Then just hit the option to start install, **I**;
+- create a non-volatile container running **docker/010** and install and configure in it TeX Live. This container mounts the ISO image at **/texlive**. In the latest release (2020), there was an **install-tl** script. All default parameters were accepted, make sure A4 is used as default. Then just hit the option to start install, **I**;
 
-- run the **scripts/texlive-postinstall.sh** script to post-configure the installation;
+- run the **/ext-src/scripts/texlive-postinstall.sh** script to post-configure the installation;
 
 - when happy, exit the container and execute script **020** to commit changes to a new image called **malkab/text-workflows**;
 

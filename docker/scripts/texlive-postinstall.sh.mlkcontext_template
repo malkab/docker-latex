@@ -20,3 +20,10 @@ echo PATH=$PATH:/usr/local/texlive/{{{MLKC_TEXT_WORKFLOWS_TEXLIVE_YEAR}}}/bin/x8
 cp /ext-src/assets/texmf.cnf /usr/local/texlive/{{{MLKC_TEXT_WORKFLOWS_TEXLIVE_YEAR}}}/texmf.cnf
 
 /usr/local/texlive/{{{MLKC_TEXT_WORKFLOWS_TEXLIVE_YEAR}}}/bin/x86_64-linux/fmtutil-sys --all
+
+
+# Spanish and english hack for XINDY
+cd /usr/local/texlive/2020/texmf-dist/xindy/modules/lang/spanish/
+ln -s modern-utf8-lang.xdy utf8-lang.xdy
+ln -s modern-utf8-test.xdy utf8-test.xdy
+ln -s modern-utf8.xdy utf8.xdy
