@@ -2,6 +2,6 @@ rsync-push-*.sh
 *DS_Store*
 texlive-iso/*.iso
 texlive-mount-point
-# Added by mlkcontext - v1.1.0
+# Added by mlkctxt - v1.1.4
 # -------------------
-docker/scripts/texlive-postinstall.sh
+docker/assets/scripts/texlive-postinstall.sh

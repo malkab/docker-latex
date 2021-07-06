@@ -4,7 +4,7 @@
 
 # -----------------------------------------------------------------
 #
-# Runs the base image to install TeX Live manually.
+# Test the image.
 #
 # -----------------------------------------------------------------
 #
@@ -16,7 +16,7 @@
 MATCH_MLKCTXT=common
 # User UID and GID in the UID:GID form. Defaults to 0:0. This uses the --user
 # Docker parameter, so the user must exist at the image.
-USER=
+USER=1000:1000
 # Custom command or path to script (relative to WORKDIR) to execute, for example
 # "/bin/bash -c \"ls -lh\"". Leave blank for using the image's built-in option.
 # This has a strong interaction with the ENTRYPOINT parameter.
@@ -29,25 +29,22 @@ NETWORK=
 # UID to avoid clashing) and the container host name (without UID). Incompatible
 # with NETWORK container:name option. If blank, a Docker engine default name
 # will be assigned to the container.
-ID_ROOT=latex-install-container
+ID_ROOT=latex_test
 # Unique? If true, no container with the same name can be created. Defaults to
 # true.
 UNIQUE=
 # Work dir. Use $(pwd) paths. Defaults to /.
-WORKDIR=/texlive
+WORKDIR=
 # Run mode. Can be PERSISTABLE (-ti), VOLATILE (-ti --rm), or DAEMON (-d). If
 # blank, defaults to VOLATILE.
-RUN_MODE=PERSISTABLE
+RUN_MODE=
 # The name of the image to pull, without tag. Defaults to ubuntu.
-IMAGE_NAME=malkab/latex-install-base
+IMAGE_NAME=malkab/latex
 # The Docker image tag to use. Defaults to latest.
 IMAGE_TAG=
 # Declare volumes, a line per volume, complete in source:destination form. No
 # strings needed, $(pwd)/../data/:/ext_src/ works perfectly. Defaults to ().
-VOLUMES=(
-  $(pwd)/assets/:/ext-src/
-  $(pwd)/../texlive/texlive-mount-point/:/texlive
-)
+VOLUMES=($(pwd)/:$(pwd)/)
 # Env vars. Use ENV_VAR_NAME_CONTAINER=ENV_VAR_NAME_HOST format. Defaults to ().
 ENV_VARS=
 # Replicas. If VOLATILE is true will fail. Keep in mind replicas will share
@@ -55,9 +52,9 @@ ENV_VARS=
 # Keep blank for no replicas. Needs the ID_ROOT parameter to be defined.
 REPLICAS=
 # Open ports in the form (external:internal external:internal).
-PORTS=(8000:8000)
+PORTS=
 # Custom entrypoint, leave blank for using the image's built-in option.
-ENTRYPOINT=/bin/bash
+ENTRYPOINT=
 # The following options are mutually exclusive. Use display for X11 host server
 # in Mac? Defaults to false.
 X11_MAC=

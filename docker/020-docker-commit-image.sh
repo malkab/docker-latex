@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Version: 2021-01-21
+# Version: 2021-07-06
 
 # -----------------------------------------------------------------
 #
@@ -13,14 +13,14 @@
 # -----------------------------------------------------------------
 # Check mlkcontext to check. If void, no check will be performed. If NOTNULL,
 # any activated context will do, but will fail if no context was activated.
-MATCH_MLKCONTEXT=common
-# Container name
-CONTAINER_NAME=$(docker ps -aq --filter "name=text-workflows-install-container")
-# The name of the image to push.
-IMAGE_NAME=malkab/text-workflows
+MATCH_MLKCTXT=common
+# Container name, mandatory.
+CONTAINER_NAME=$(docker ps -aq --filter "name=latex-install-container_")
+# The name of the image to push, mandatory.
+IMAGE_NAME=malkab/latex
 # The tag.
 IMAGE_TAG="tl${MLKC_TEXT_WORKFLOWS_TEXLIVE_YEAR}"
-# Latest? Tag the image as latest, too.
+# Latest? Tag the image as latest, too. Defaults to false.
 LATEST=true
 
 
@@ -30,10 +30,9 @@ LATEST=true
 # ---
 
 # Check mlkcontext is present at the system
-if command -v mlkcontext &> /dev/null
-then
+if command -v mlkctxt &> /dev/null ; then
 
-  if ! mlkcontext -c $MATCH_MLKCONTEXT ; then exit 1; fi
+  if ! mlkctxt -c $MATCH_MLKCTXT ; then exit 1; fi
 
 fi
 
