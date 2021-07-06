@@ -1,0 +1,7 @@
+name: docker-latex
+root: /home/git/docker/docker-latex
+
+windows:
+  - docker-latex: >
+      clear ;
+      sleep 0.2

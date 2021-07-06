@@ -37,11 +37,16 @@ RUN pip3 install mkdocs mkdocs-material mkdocs-bootswatch
 RUN locale-gen es_ES.UTF-8
 
 # Add assets
-COPY ./assets/pandoc.deb /
+COPY assets/pandoc/pandoc.deb /
 
 # Copy configurations
-COPY ./assets/dot.bashrc /root/.bashrc
-COPY ./assets/dot.vimrc /root/.vimrc
+COPY assets/home/dot.bashrc /root/.bashrc
+COPY assets/home/dot.vimrc /root/.vimrc
+COPY assets/home/dot.bashrc /etc/skel/.bashrc
+COPY assets/home/dot.vimrc /etc/skel/.vimrc
+
+# Add users
+COPY assets/scripts/create_users.sh /
 
 # Install pandoc
 RUN dpkg -i /pandoc.deb && \

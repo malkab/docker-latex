@@ -1,7 +1,0 @@
-name: text-workflows
-root: /home/git/docker-public/text-workflows
-
-windows:
-  - text-workflows: >
-      clear ;
-      sleep 0.2
