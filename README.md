@@ -1,36 +1,36 @@
-# Docker Building Process of an Image for Text Workflows based on TeX Live
+# Proceso de construcción de la imagen Docker para TeX Live
 
-This repo contains the process and tools to create a Docker image for working with TeX Live. It is a manual process not governed entirely by a Dockerfile, since Tex Live installation is not automatic.
-
-
-## Tags
-
-This image has the following tags:
-
-- **tl2019:** TeX Live for 2019, Pandoc version 2.8.1;
-
-- **tl2020:** TeX Live for 2020 as 2020-04-06, Pandoc version 2.11.4. This tag includes ImageMagick for image processing.
-
-- **tl2021:** TeX Live for 2021 as 2021-03-25, Pandoc version 2.14.0.3-1. This tag also includes ImageMagick for image processing.
+Como concepto general, hay que tener en cuenta que la instalación
+de TeX Live hay que hacerla manualmente.
 
 
-## Build Steps
+## Pasos para el build
 
-This build process is pretty much time and resource consuming. **Consider running it on a workstation**.
+Para crear una nueva tag:
 
-Steps to build the image:
+- descargar desde el **CTAN** la versión TeX Live deseada en
+  formato ISO. La última vez la sacamos del Torrent. Ver la
+  versión y meterla en **assets/texlive** con el nombre
+  **texlive_tlYYYY.iso**;
 
-- download the desired TeX Live ISO image from **CTAN**. It is not in the **docker** folder because they are really big and there is no point in incoporating it into the Docker build context. Copy it to the **texlive folder** and rename it to **texlive.iso**. Document the version used;
+- descargar también desde **Pandoc** el **.deb** de la
+  distribución binaria que queramos instalar y ponerla en
+  **assets/pandoc** ;
 
-- download the latest release of .deb package of **Pandoc** from its page. Copy it to the **docker/assets/pandoc folder** and rename to **pandoc.deb**. Document the version used;
+- primero creamos una imagen base sobre la que instalaremos
+  manualmente la ISO posteriormente. Se llama
+  **latex_manual_install:tlYYYY** y se crea con **010**;
 
-- run the **texlive/000-mount-iso.sh** script as sudo. It will mount the ISO into the **texlive-mount-point** folder;
+- montamos la ISO con **020**;
 
-- create a base image for working the TeX Live installation by running the **docker/000** script;
+- con **030** creamos el contenedor no volátil con nombre
+  **latex_install_container_tlYYYY** e instalamos el TeX Live con
+  el script **install-tl**. Asegurarse de que el tamaño de página
+  es A4 e instalar con **I**;
 
-- configure the **common context** with the name of the TeX Live distribution (the year) and activate it;
+- ejecutar después de instalar el TeX Live el script **assets/scripts/texlive-postinstall.sh**;
 
-- create a non-volatile container running **docker/010** and install and configure in it TeX Live. This container mounts the ISO image at **/texlive**. In the latest release (2021), there was an **install-tl** script. All default parameters were accepted, make sure A4 is used as default. Then just hit the option to start install, **I**;
+
 
 - still inside the temporal installation container, run the **/ext-src/scripts/texlive-postinstall.sh** script to post-configure the installation and create users;
 
