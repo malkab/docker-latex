@@ -18,7 +18,7 @@ echo 'PATH=$PATH:/usr/local/texlive/2021/bin/x86_64-linux' >> /etc/skel/.bashrc
 . ~/.bashrc
 
 # Memory config
-cp /ext-src/texmf.cnf /usr/local/texlive/$TEX_YEAR/texmf.cnf
+cp /ext/assets/texmf.cnf /usr/local/texlive/$TEX_YEAR/texmf.cnf
 
 /usr/local/texlive/$TEX_YEAR/bin/x86_64-linux/fmtutil-sys --all
 
