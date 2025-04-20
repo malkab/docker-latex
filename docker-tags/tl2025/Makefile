@@ -17,7 +17,7 @@ GIT_COMMIT=$(shell git rev-parse --short=6 HEAD)
 
 LAST_SAVED_VERSION=$(shell \
 	find . -maxdepth 1 -type f \
-		-name 'python_3_12_devcontainer_*.tar.gz' \
+		-name '*.tar.gz' \
 		-printf '%T@ %p\n' | \
 	sort -nr | \
 	head -n1 | \
