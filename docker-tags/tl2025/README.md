@@ -7,6 +7,9 @@ Para crear una nueva tag:
   versión y meterla en **assets/texlive** con el nombre
   **texlive_tlYYYY.iso**;
 
+- configurar el año de la compilación **texlive** en la env var
+  del Dockerfile;
+
 - descargar también desde **Pandoc** el **.deb** de la
   distribución binaria que queramos instalar y ponerla en
   **assets/pandoc** ;

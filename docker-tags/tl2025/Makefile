@@ -1,11 +1,12 @@
 # ¡ATENCIÓN! Esto hay que cambiarlo también en el FROM del Dockerfile.
 # Nombre de la imagen base, nombre:tag.
-BASE_IMAGE_NAME=debian_gp:bookworm
+BASE_IMAGE_NAME=debian_devcontainer:bookworm
 # Nombre de la imagen, nombre:tag.
 IMAGE_TAG=tl2025
+IMAGE_NAME=latex:$(IMAGE_TAG)
 IMAGE_SAVE_NAME=latex_$(IMAGE_TAG)
 # Nombre del usuario dentro de la imagen.
-IMAGE_USER=debian
+IMAGE_USER=vscode
 
 # Para el push a registros privados, especialmente el Gitea.
 PUSH_OWNER=whateveruser
@@ -43,8 +44,8 @@ iso_mount:
 	@sudo mount assets/texlive/texlive_$(IMAGE_TAG).iso \
     	./texlive_mount_point
 
-# Ejecutar un contenedor no efímero para la instalación del TeX
-# Live.
+# Crea y ejecuta el contenedor no efímero para la instalación del
+# TeX Live.
 manual_install:
 	@docker run -ti \
     	--name latex_install_container_$(IMAGE_TAG) \
@@ -56,11 +57,16 @@ manual_install:
 		--user root \
 		latex_manual_install:$(IMAGE_TAG)
 
+# Arranca el contenedor no efímero de la instalación.
+run_manual_install:
+	@docker start -ai \
+		latex_install_container_$(IMAGE_TAG)
+
 # Hace commit de la imagen de instalación manual.
 commit:
 	@docker commit \
 		latex_install_container_$(IMAGE_TAG) \
-		latex:$(IMAGE_TAG)
+		$(IMAGE_NAME)
 
 # Ejecuta la imagen construída.
 run:
@@ -95,7 +101,7 @@ clean:
 	@# Drop the install-base image
 	-@docker rmi latex_manual_install:$(IMAGE_TAG)
 
-	@# Unmount texlive-mount-point
+	@# Unmount texlive_mount_point
 	-@sudo umount ./texlive_mount_point
 	-@rmdir ./texlive_mount_point
 
