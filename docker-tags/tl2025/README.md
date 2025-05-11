@@ -23,15 +23,16 @@ Para crear una nueva tag:
 
 - con **make manual_install** creamos el contenedor no volátil
   con nombre **latex_install_container_tlYYYY** e instalamos el
-  TeX Live con el script **install-tl**. Asegurarse de que el
-  tamaño de página es A4 e instalar con **I**;
+  TeX Live con el script **/texlive/install-tl** con sudo.
+  Asegurarse de que el tamaño de página es A4 e instalar con
+  **I**;
 
 - ejecutar después de instalar el TeX Live el script
-  **/ext/assets/scripts/texlive-postinstall.sh**;
+  **sudo TEX_YEAR=2025 /ext/assets/scripts/texlive-postinstall.sh**;
 
 - cuando la imagen esté lista, salir del contenedor de
   instalación manual y hacer commit con **make commit**;
 
-- hacer push o save con el make apropiado.
+- hacer **push o save** con el make apropiado.
 
 - limpiar los assets de builds con **make clean**.

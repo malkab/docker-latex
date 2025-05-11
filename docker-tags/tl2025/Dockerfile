@@ -1,5 +1,4 @@
 # Text workflow Docker based on TeX Live
-
 FROM debian_devcontainer:bookworm AS build
 LABEL author="Juan Pedro Perez"
 LABEL author_email="jp.perez.alcantara@gmail.com"

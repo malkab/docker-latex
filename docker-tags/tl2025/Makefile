@@ -52,9 +52,6 @@ manual_install:
 	    -v $(shell pwd):/ext \
 		-v ./texlive_mount_point/:/texlive \
 		-p 8000:8000 \
-		--entrypoint /bin/bash \
-		--workdir /texlive \
-		--user root \
 		latex_manual_install:$(IMAGE_TAG)
 
 # Arranca el contenedor no efímero de la instalación.
@@ -74,7 +71,6 @@ run:
 		--user $(IMAGE_USER):$(IMAGE_USER) \
 		-v $(shell pwd):$(shell pwd) \
 		--workdir $(shell pwd) \
-		--entrypoint /bin/bash \
 		$(IMAGE_NAME)
 
 # Subida.
