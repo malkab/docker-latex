@@ -22,25 +22,12 @@ RUN apt-get update && \
       imagemagick \
       libncurses5 \
       python3 \
-      python3-pip
+      python3-pip && \
+    apt-get purge -y --autoremove && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN ldconfig
 
 RUN ln -s /usr/bin/python3 /usr/bin/python
-
-RUN python3 -m pip install --upgrade --break-system-packages \
-  mkdocs \
-  mkdocs-material \
-  mkdocs-bootswatch
-
-# Add assets
-COPY assets/pandoc/pandoc*.deb /pandoc.deb
-
-# Install pandoc
-RUN dpkg -i /pandoc.deb && \
-  rm /pandoc.deb
-
-# Clean a little bit
-RUN apt-get clean
 
 USER vscode

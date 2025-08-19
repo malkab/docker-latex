@@ -3,16 +3,13 @@
 Para crear una nueva tag:
 
 - descargar desde el **CTAN** la versión TeX Live deseada en
-  formato ISO. La última vez la sacamos del Torrent. Ver la
-  versión y meterla en **assets/texlive** con el nombre
-  **texlive_tlYYYY.iso**;
+  formato ISO. La última vez la sacamos del Torrent y es lo
+  recomendado. Ver la versión y meterla en **assets/texlive** con
+  el nombre **texlive_tlYYYY.iso**. La última versión instalada
+  fué la **TeX Live 2025 texlive2025-20250308.iso**;
 
 - configurar el año de la compilación **texlive** en la env var
   del Dockerfile;
-
-- descargar también desde **Pandoc** el **.deb** de la
-  distribución binaria que queramos instalar y ponerla en
-  **assets/pandoc** ;
 
 - primero creamos una imagen base sobre la que instalaremos
   manualmente la ISO posteriormente. Se llama
